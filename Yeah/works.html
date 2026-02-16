@@ -30,7 +30,7 @@ body {
 
 header {
   position: fixed;
-  top: 0;
+  top: 4px;
   left: 0;
   width: 100%;
   padding: 36px 48px;
@@ -76,7 +76,55 @@ header {
   position: relative;
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
+/* ================= MARQUEE ================= */
+
+.marquee {
+
+  height: 32px;
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  border-bottom: 1px dashed rgba(255,255,255,0.35);
+
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+
+  z-index: 10;
+  position: relative;
+
+}
+
+.marquee-track {
+
+  white-space: nowrap;
+
+  animation: marqueeScroll 18s linear infinite;
+
+  font-family: var(--sans);
+  font-weight: 700;
+
+  font-size: 14px;
+  letter-spacing: -0.01em;
+
+  color: white;
+
+}
+
+@keyframes marqueeScroll {
+
+  from { transform: translateX(0); }
+
+  to { transform: translateX(-50%); }
+
+}
+
+
+
 
 .slide {
   position: absolute;
@@ -112,6 +160,76 @@ header {
   z-index: 3;
   max-width: 420px;
 }
+/* ================= NOW SHOWING HIERARCHY ================= */
+
+.now-showing-label {
+
+  font-family: var(--sans);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  opacity: 0.6;
+
+  margin-bottom: 10px;
+
+}
+
+.now-showing-artists {
+
+  font-family: var(--sans);
+
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+
+  font-weight: 700;
+
+  letter-spacing: -0.04em;
+
+  line-height: 1.05;
+
+  margin-bottom: 6px;
+
+}
+
+.now-showing-title {
+
+  font-family: serif;
+
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+
+  font-style: italic;
+
+  opacity: 0.85;
+
+}
+
+
+/* fade animation */
+
+.now-showing-artists,
+.now-showing-title {
+
+  opacity: 0;
+
+  transform: translateY(6px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+
+}
+
+.now-showing-visible {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+
 
 .slide-title {
   font-family: var(--sans);
@@ -128,25 +246,106 @@ header {
   gap: 12px;
   z-index: 5;
 }
+/* ================= DOT NAVIGATION ================= */
+
+.dots {
+
+  position: absolute;
+
+  bottom: 60px;
+  right: 32px;
+
+
+  display: flex;
+  opacity: 07;
+
+  transition: opacity 0.3s ease;
+
+  gap: 10px;
+
+  z-index: 10;
+
+}
+.dot.active {
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.08);
+}
+
+
+.dot {
+
+  width: 7px;
+  height: 7px;
+  opacity: 0.6;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.35);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    opacity 0.25s ease;
+
+}
+
+.dot:hover {
+
+  transform: scale(1.3);
+
+  background: rgba(255,255,255,0.7);
+
+}
+
+.dot.active {
+
+  background: white;
+
+  transform: scale(1.4);
+
+}
+
+.landing:hover .dots {
+
+  opacity: 0.8;
+
+}
+
 
 .arrow {
-  padding: 8px 18px;
-  border: 1.5px dashed rgba(255,255,255,0.85);
-  border-radius: 999px;
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(10px);
-  color: #fff;
-  font-family: var(--sans);
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-  transition: 0.2s ease;
+
+  background: rgba(255,255,255,0.12);
+
+  backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255,255,255,0.18);
+
+  color: white;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+
+  transition: all 0.25s ease;
+
 }
 
 .arrow:hover {
-  background: rgba(0,0,0,0.5);
+
+  background: rgba(255,255,255,0.22);
+
   transform: translateY(-1px);
+
 }
+
 
 /* ================= EXHIBITIONS ================= */
 
@@ -283,19 +482,60 @@ footer strong {
 
 @media (max-width: 900px) {
 
-  header { padding: 24px; }
+  header {
+    padding: 30px;
+    top: 32px;
+  }
 
-  .slide-content { bottom: 80px; right: 24px; }
+  /* move hero text higher */
+  .slide-content {
+    bottom: 110px;
+    right: 24px;
+    max-width: 85%;
+  }
 
-  .controls { bottom: 20px; right: 20px; }
+  /* tighten hierarchy spacing */
+  .now-showing-label {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
 
-  .exhibitions { padding: 120px 24px 80px; }
+  .now-showing-artists {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+    margin-bottom: 4px;
+  }
 
-  .exhibit-title { font-size: 18px; }
+  .now-showing-title {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
 
-  .exhibit-number { font-size: 38px; }
+  /* ensure dots stay below text */
+  .dots {
+    bottom: 76px;
+    right: 24px;
+  }
+
+  .exhibit-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 14px;
+  }
+
+  .exhibit-number {
+    font-size: 42px;
+    flex-shrink: 0;
+  }
+
+  .exhibit-title {
+    font-size: 18px;
+    line-height: 1.2;
+    max-width: 220px;
+  }
 
 }
+
+
 </style>
 </head>
 
@@ -314,12 +554,35 @@ footer strong {
 
 <section class="landing">
 
-<a href="exhibitions/not-a-threat.html" class="slide active"
-style="background-image:url('/Yeah/Images/ThreatCover.webp')">
-  <div class="slide-content">
-    <div class="slide-title">Not A Threat, A Promise</div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>
+        Address: Unit B1, Studio 07, Mainyard Studios, London E9 5LN — Email: info@shipton.gallery — Socials: @shipton__ 
+        Address: Unit B1, Studio 07, Mainyard Studios, London E9 5LN — Email: info@shipton.gallery — Socials: @shipton__ 
+        Address: Unit B1, Studio 07, Mainyard Studios, London E9 5LN — Email: info@shipton.gallery — Socials: @shipton__ 
+      </span>
+    </div>
   </div>
-</a>
+
+  <!-- slides below -->
+
+  <a href="exhibitions/not-a-threat.html" class="slide active"
+  style="background-image:url('/Yeah/Images/ThreatCover.webp')">
+    <div class="slide-content">
+
+  <div class="now-showing-label">
+    Now showing
+  </div>
+
+  <div class="now-showing-artists"></div>
+
+  <div class="now-showing-title"></div>
+
+</div>
+
+    </div>
+  </a>
+
 
 <a href="exhibitions/juvenile.html" class="slide"
 style="background-image:url('/Yeah/Images/JuvenileCover.webp')">
@@ -335,10 +598,7 @@ style="background-image:url('/Yeah/Images/HinterlandCover.webp')">
   </div>
 </a>
 
-<div class="controls">
-  <button class="arrow prev">&larr;</button>
-  <button class="arrow next">&rarr;</button>
-</div>
+<div class="dots"></div>
 
 </section>
 
@@ -454,33 +714,89 @@ Instagram: @shipton__
 </footer>
 
 <script>
+  
 
 /* Slider */
 
-const slides = document.querySelectorAll(".slide");
-const next = document.querySelector(".next");
-const prev = document.querySelector(".prev");
-let current = 0;
+/* ================= SLIDER WITH DOT NAV ================= */
 
-function showSlide(i){
-  slides.forEach(s=>s.classList.remove("active"));
-  slides[i].classList.add("active");
+const slides = document.querySelectorAll(".slide");
+const dotsContainer = document.querySelector(".dots");
+
+let current = 0;
+let interval;
+
+
+/* create dots */
+
+slides.forEach((_, index)=>{
+
+  const dot = document.createElement("div");
+
+  dot.classList.add("dot");
+
+  if(index === 0) dot.classList.add("active");
+
+  dot.addEventListener("click", ()=>{
+
+    current = index;
+
+    showSlide(current);
+
+    resetInterval();
+
+  });
+
+  dotsContainer.appendChild(dot);
+
+});
+
+
+const dots = document.querySelectorAll(".dot");
+
+
+function showSlide(index){
+
+  slides.forEach(slide=>slide.classList.remove("active"));
+
+  dots.forEach(dot=>dot.classList.remove("active"));
+
+  slides[index].classList.add("active");
+
+  dots[index].classList.add("active");
+
+  updateNowShowing(index);
+
 }
+
+
+/* auto advance */
 
 function nextSlide(){
-  current = (current+1)%slides.length;
+
+  current = (current + 1) % slides.length;
+
   showSlide(current);
+
 }
 
-function prevSlide(){
-  current = (current-1+slides.length)%slides.length;
-  showSlide(current);
+
+/* reset timer when user interacts */
+
+function resetInterval(){
+
+  clearInterval(interval);
+
+  interval = setInterval(nextSlide, 8000);
+
+
 }
 
-next.onclick = e => { e.preventDefault(); nextSlide(); };
-prev.onclick = e => { e.preventDefault(); prevSlide(); };
 
-setInterval(nextSlide, 8000);
+/* start auto */
+
+resetInterval();
+
 
 
 /* Collapsible (click again collapses) */
@@ -514,6 +830,54 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 
 exhibits.forEach(ex => observer.observe(ex));
+/* ================= NOW SHOWING FADE + AUTO UPDATE ================= */
+
+const nowArtists = document.querySelector(".now-showing-artists");
+const nowTitle = document.querySelector(".now-showing-title");
+
+function updateNowShowing(index){
+
+  const exhibits = document.querySelectorAll(".exhibit");
+
+  if(!exhibits[index]) return;
+
+  const exhibit = exhibits[index];
+
+  const artists =
+    exhibit.querySelector(".exhibit-body-inner")
+    ?.childNodes[0]?.textContent?.trim() || "";
+
+  const title =
+    exhibit.querySelector(".exhibit-title")
+    ?.textContent?.trim() || "";
+
+  /* fade out */
+
+  nowArtists.classList.remove("now-showing-visible");
+  nowTitle.classList.remove("now-showing-visible");
+
+  /* update text after fade out */
+
+  setTimeout(()=>{
+
+    nowArtists.textContent = artists;
+    nowTitle.textContent = title;
+
+    nowArtists.classList.add("now-showing-visible");
+    nowTitle.classList.add("now-showing-visible");
+
+  }, 300);
+
+}
+
+/* initialize */
+
+setTimeout(()=>{
+  updateNowShowing(0);
+}, 100);
+
+
+
 
 </script>
 

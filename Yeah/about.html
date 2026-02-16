@@ -106,46 +106,145 @@
       margin-bottom: 6px;
     }
 
-    footer {
-      padding: 64px 48px;
-      font-size: 12px;
-    }
+/* ================= FOOTER ================= */
 
-    /* ================= MOBILE ================= */
+
+footer {
+  margin-top: 200px;
+  padding: 40px 48px;
+  border-top: 1px dashed rgba(0,0,0,0.25);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+footer strong {
+  font-family: var(--sans);
+  font-weight: 700;
+}
+
+    /* ================= MOBILE SYSTEM (GLOBAL UNIFIED) ================= */
 
 @media (max-width: 900px) {
-  body {
-    overflow: auto;
+
+  :root {
+    --header-h: 88px;
   }
+
+  /* Header */
 
   header {
-    position: sticky;
-    background: transparent; /* ← removes fade */
+
+    position: fixed;
+
+    top: 0;
+
+    padding: 22px 24px;
+
   }
+
+  .logo {
+
+    font-size: 16px;
+
+  }
+
+  .top-actions {
+
+    gap: 18px;
+
+  }
+
+  .top-actions a {
+
+    font-size: 14px;
+
+  }
+
+
+  /* Main layout */
 
   main {
-    grid-template-columns: 1fr;
-    height: auto;
+
+    padding-top: calc(var(--header-h) + 24px);
+
+    padding-left: 24px;
+
+    padding-right: 24px;
+
   }
 
-  .text-column {
-    order: 1;
-    height: auto;
-    overflow: visible;
-    padding: 32px;
-  }
 
-  .image-column {
-    order: 2;
-    height: auto;
-    overflow: visible;
-    padding: 32px;
-  }
+  /* Page titles */
 
   .title {
-    font-size: 3rem;
+
+    font-size: clamp(2.6rem, 9vw, 3.2rem);
+
+    margin-bottom: 40px;
+
   }
+
+
+  /* Grid layout → stack vertically */
+
+  .about-grid,
+  .press-grid,
+  .friends-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 36px;
+
+  }
+
+
+  /* Labels */
+
+  .friends-label,
+  .press-grid strong,
+  .about-grid strong {
+
+    font-size: 12px;
+
+    margin-bottom: 6px;
+
+  }
+
+
+  /* Primary link / name */
+
+  .friends-link,
+  .press-grid a,
+  .about-grid p {
+
+    font-size: 18px;
+
+  }
+
+
+  /* Preview images */
+
+  .friends-preview {
+
+    width: 180px;
+
+    height: 120px;
+
+  }
+
+
+  /* Footer */
+
+  footer {
+
+    padding: 48px 24px;
+
+  }
+
 }
+
+
+
 
   </style>
 </head>
@@ -200,7 +299,13 @@
 
 </main>
 
-<footer>© SHIPTON</footer>
+<footer>
+<strong>SHIPTON</strong><br><br>
+Unit B1, Studio 07, Mainyard Studios<br>
+Curie House, 80 Wallis Rd, London E9 5LN<br><br>
+info@shipton.gallery<br>
+Instagram: @shipton__
+</footer>
 
 </body>
 </html>
