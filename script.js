@@ -22,6 +22,24 @@ marked.setOptions({ renderer });
 // --- Blog entries data --- lol  
 const entries = [
                     {
+                    date: "Fri 27th February",
+                    content: [
+                      "I never know if it’s a good or bad thing that life is not the same for even two weeks at a time.",
+                      "It has been a while since my last entry and so much has changed since January, both in terms of goals, direction, and my priorities.",
+                      "I <span class='img-word' data-img='Images/IMG_0175 2.webp'>doubled down</span> on breakdowns and sharing my design thinking through short form <span class='img-word' data-img='Images/socialmedia.webp'>content</span>. I cut back my hours at <span class='img-word' data-img='Images/workpic.webp'>work</span>, cleared the commissions on my plate, and freed up time to lock in. I’ve already seen results since starting posting on the 1st of February. Please see my [2026 Are.na](https://www.are.na/madani/two-six-okwyzjf_k3y) for milestone achievements.",
+                      "I started out posting daily but quickly realised it’s super taxing to ideate, research, design, record, and edit every single day. Now I post every other day, which gives me breathing room to do commission work, pursue higher quality ideas, and enough time to reflect so each rep and iteration is better than the previous one, even if it’s just 1%.",
+                      "Ive noticed an importance in having a consistent narrative when it comes to designing and also talking about design thinking. You can fight for multiple things, just make sure it’s made clear when it you do.",
+                      "Also, advice. Advice from the wrong people can be so destructive but how do you approach that statement at all when the reason we ask for or are given unsolicited advice is to fill gaps in knowledge. How do you remedy bad advice without hindsight. Research?",
+                      "Dropping out has left me slightly lonely. The goal of going to design events on a monthly basis has fallen short. I’ve gone to two since January, but I think it’s fine.",
+                      "[Keep](https://www.instagram.com/keep_magazine/) has turned a new leaf. Me and Kenta have neglected the project for some time. I’m half decent at writing and conducting interviews, but I can’t help but feel disinterested spending so much time building something for someone else’s story. Highkey selfish, but it was just not feasible on a monthly basis. I now have Keep to myself. I’m not entirely sure what I’ll do with it, but it’s unlikely to stay a magazine.",
+                      "Web design and content design skills are improving very quickly, but I’m not giving myself many opportunities to direct or act autonomously from a creative direction perspective. Maybe this is the road Keep goes down. I would love to make <span class='img-word' data-img='Images/slavetee.webp'>clothes</span>, books, and objects supported by research, advocacy, and personal views directed by me, but what is the core concept for the brand? Something like what [Hugo Comte](https://www.instagram.com/hugocomte/?hl=en) has.",
+                      "Do I need an excuse to make anything? I think this overly logical technical thinking is what made me drop out lol.",
+                      "This reminds me, I’ve always loved [Naomi Sharon](https://www.instagram.com/naomisharon/) but only recently realised she is in part creative directed [here](https://www.instagram.com/p/DVJpGj_iB3p/?hl=en) by <span class='img-word' data-img='Images/mowalola.webp'>[Mowalola](https://www.instagram.com/mowalola/)</span>, which is probably why I’ve been so enamoured. Mowalola has always been more than naked models in rooms with polished <span class='img-word' data-img='Images/naked.jpg'>steel walls</span>. It’s sex, it’s convenience, it’s the most successful experiment, it’s shame and shamelessness, and also it’s so black British.",
+                      "Big fan of this <span class='img-word' data-img='Images/beautifulknit.jpg'>knit</span> btw. Would get it if it wasn’t 300 big ones </3 Some other clothes I want are this <span class='img-word' data-img='Images/beanie.png'>beanie</span> and <span class='img-word' data-img='Images/Screenshot 2026-02-27 at 06.40.55.png'>jumper</span> from [b.Eautiful](https://b-eautiful.com/products/).",
+                      "Not losing sight of what it means to be a designer. Designing is one process on the conveyor belt. I need to be in <span class='img-word' data-img='Images/yeattheshow.png'>control of the whole process</span> someday soon."
+                    ]
+                  },
+                    {
                       date: "Sun 18th January",
                       content: [
                         "![sauce](Images/IMG_9502.webp)",
