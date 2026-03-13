@@ -21,6 +21,21 @@ marked.setOptions({ renderer });
 
 // --- Blog entries data --- lol  
 const entries = [
+                      {
+                      date: "Fri 13th March",
+                      content: [
+                        "Next purchase is a new MacBook and after that, all money will be devoted to moving to London.",
+                        "I had a single video do really well. I’ve honestly been slacking on reels. Having many issues generating ideas I feel are worth talking about within design. My personal convictions lie in other places but maybe I should just follow that.",
+                        "Getting hired by Shovel this month has been great. Only on my second week but I’m honestly kinda stressed. Not by the work itself, but I feel as though I’m constantly underperforming. I really can’t know yet. Do you ever look at something and think it’s amateur a while after you make it? That turnaround time has become insanely quick where sometimes I submit something and think it’s shit a few hours later before it’s even been reviewed.",
+                        "But let’s focus here. I got hired. Something I thought would take two years took me four months and I couldn’t be more grateful. Blaze himself is super honest and I never feel like he’s holding back on giving insights that are truly applicable to where I am. Couldn’t ask to be in a better place.",
+                        "You ever dream big, then meet someone and suddenly those big dreams seem kinda small in the scheme of things. I want to be that person for people, the same way people have been for me.",
+                        "Bought clothes for what feels like the first time in forever. I got this <span class='img-word' data-img='Images/corbinhat.webp'>hat</span> from Corbin Shaw whose work I’ve followed and loved for some time now. It hasn’t actually arrived yet but I’m excited for it.",
+                        "Very final project I’m taking on right now which will wrap up this weekend I sincerely hope. Just a lot of content to move. After this all my time will be split between content for my own account and design work for Shovel. Really, nothing else matters that much.",
+                        "London next week which I’m looking forward to heavy. It’s been a while since I’ve stepped foot in the city.",
+                        "More work to be done <3",
+                        "[elliot earls changed my life](https://www.youtube.com/watch?v=9hkhUY2sTno)"
+                      ]
+                    },
                     {
                     date: "Fri 27th February",
                     content: [
