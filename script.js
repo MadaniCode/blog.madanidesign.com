@@ -21,6 +21,25 @@ marked.setOptions({ renderer });
 
 // --- Blog entries data --- lol  
 const entries = [{
+                    date: "Sat 12th September",
+                    content: [
+                      "Neglected this for some time but maybe it was for the better even though I see so much importance in documenting your time and thinking.",
+                      "I spoke with a [friend](https://sununguro.io/) this week about time, how it’s distorted with the current climate of economic, social and political issues. How it’s hard to define a career when what we used to see people take 10 years to build is being done in months. An era where saying “anything is possible” isn’t just a naive maxim but an almost terrifying truth.",
+                      "Recently I took part in a series called [“honest answers”](https://river.site/p/bagaaihra22bdav2jytul4rxzxvsla6fhqhokcq7eqvkleeqhubfpk7yrvwtq) by [River](https://www.instagram.com/river_wip/?hl=en) and it really brought me back to Feb/March in the lead up to where I stopped writing. For context, they mail you a letter with questions inside, you then fill it out, suggest who should be next, and mail it back to them in Montreal. It had me looking back at my entries, from <span class='img-word' data-img='Images/paris-carousel.webp'>dropping out</span> to quitting my job and figuring out how to do full time design work. Made me want to get back. So this is *that*.",
+                      "I turned 20 <span class='img-word' data-img='Images/flight-to-paris.webp'>while I was in Paris</span>. I was staying with <span class='img-word' data-img='Images/wide-open-jonathan.webp'>Jonathan, my friend</span> behind [Wide Open](https://www.instagram.com/wide_______open/?hl=en). On the first day there, I was doing some work for [Creator Camp](https://www.instagram.com/creatorcamp/?hl=en) which later fell through (all love tho, they’re great) so I <span class='img-word' data-img='Images/camped-cafe.webp'>camped out in this cafe</span> with my bags and took the work call. When I was done, it was getting darker outside but its mid June so <span class='img-word' data-img='Images/beautiful-day-paris.webp'>the sun was still out</span>. This really nice lady who I forgot the name of saw that I was waiting for my friend so we spoke for some time, family, <span class='img-word' data-img='Images/roadside-cafe.webp'>life in paris ect</span>. I mentioned it would be my 20th birthday in a few days and she immediately tried to buy me drinks lol. I told her i dont drink so she bought me a smoothie. We spoke some more and as it was closing time for the cafe, she invited me to <span class='img-word' data-img='Images/food-lady.webp'>get some food</span>. I was still waiting to get back to the house so I said yes. We spoke mainly through google translate but it was so fun. She asked me about relationships and made a joke about young people needing to have sex with older people (then immediately said “I’m not a cougar, promise I'm not hitting on you” in broken English which made me laugh).",
+                      "The night came to an end, we took a <span class='img-word' data-img='Images/cafe-selfie.webp'>selfie</span> and went upstairs to meet the bro. Despite him only getting there like 40 mins before me he was <span class='img-word' data-img='Images/jonathan-apartment.webp'>already on his laptop</span>, tbh was so inspiring for me to see <span class='img-word' data-img='Images/macbooks-arena.webp'>how close he is with his work</span>.",
+                      "During my time there, I met with <span class='img-word' data-img='Images/kai.webp'>a fashion student and design intern</span> named [Kai](https://www.instagram.com/kai.levan/) who actually works at [Studio Parc](https://www.instagram.com/studio.parc/) which was part of the reason I went to Paris at that time. I attended [their event](https://www.instagram.com/p/DZnTqnADA0N/?img_index=1) which was done in collaboration with [Centre For Research](https://www.instagram.com/centreforresearch/). We ended up going to a bunch of <span class='img-word' data-img='Images/bookshop.webp'>book/mag stores</span>. He also showed me this crazy automation for reels almost entirely trained on my videos. Was *freaky* if i'm being honest. But i'm thinking differently now.",
+                      "The whole thing was insane, they had <span class='img-word' data-img='Images/cfr-venue.webp'>constructed a custom table</span>, a <span class='img-word' data-img='Images/livestream-view.webp'>livestream from a camera wired to the ceiling</span>, talks from Jack Self, [Mitch Paone](https://www.instagram.com/dia_mitch/?hl=en-gb) (Who sadly passed away shortly after - He had this <span class='img-word' data-img='Images/spatial-type.webp'>beautiful performance</span> where he manipulated type both on a typographical and spatial level using a piano, whole thing blew my mind as I sat on the floor of that crowded street facing studio) and many others. Some were in french so I didn’t understand.",
+                      "Jean (the goat) introduced me to these two girls after seeing me standing alone after the event. I was really waiting to speak to Jack Self, but I’m glad he introduced me. We spoke about the state of design in paris, studio culture in France and how social media has ruined and elevated us.",
+                      "I’ll be honest, I didn’t even know who Jack Self was before this, but after I got home from Paris I watched a lot of his publicly available lectures but in the process I discovered some of my favourite interviews were conducted by him like this scarily relevant [interview from 2021 with Samuel Ross for 032c](https://magazine.032c.com/magazine/a-cold-wall-samuel-ross-by-jack-self). I wanted to ask him about hope, and how he navigates it. In the end I never got to ask him, it seemed like he was catching up with friends, but that's lowkey cope for me being shy lol.",
+                      "Anyway, <span class='img-word' data-img='Images/another-paris.webp'>Paris came and went</span>, <span class='img-word' data-img='Images/football-paris.webp'>it was a great time</span>. The highlight was <span class='img-word' data-img='Images/lime-bike.webp'>lime biking</span> of course.",
+                      "When I came back I pitched [YY](https://www.instagram.com/yy__exchange/) <span class='img-word' data-img='Images/yy-pitch.webp'>for this concept</span>. I had to start incorporating a studio element into my content, they were down. It was my first time pitching like that myself, but after <span class='img-word' data-img='Images/blaze-call.webp'>running it by</span> [Blaze](https://www.instagram.com/shovel.studio/) and some other friends to dial it in, I got that <span class='img-word' data-img='Images/yy-call.webp'>call</span> via the <span class='img-word' data-img='Images/cfr-merch.webp'>amazing guys</span> at Centre For Research. I’ve since began production on a reel about their <span class='img-word' data-img='Images/studioparc-cfr-tee.webp'>studio lore</span>. (Hopefully visiting their studio later this year, such a legendary pilot. Dinamo after that also.)",
+                      "So much happening with [Dinamo](https://www.instagram.com/abcdinamo/?hl=en) too, seems like a story for another time but things are going well there. They’re also the best to work with - even <span class='img-word' data-img='Images/dinamo-zip.webp'>sent me some cool stuff</span>. Fun is the number one priority <3",
+                      "I’m missing so much like revisiting the Keep Gallery and Margiela Archive concepts and my recent anxiety over work and career. But as I’m writing this I feel pretty good, so not now. A lot of it has been living on my [are.na](https://www.are.na/madani/channels) since I stopped writing here anyway. I can summarise my time since Paris as - <span class='img-word' data-img='Images/flan.webp'>getting fat indoors</span>, working hard, then <span class='img-word' data-img='Images/football-lol.webp'>hardly working</span>, then working hard and now slightly deflated but inspired and hopeful. I’ve had a *softer* view of things recently.",
+                      "Talk soon, and maybe even more often, Madani."
+                    ]
+                  },
+                  {
                     date: "Sat 21st March",
                     content: [
                       "One of my goals going into this year was to publish a book. Still something I’m looking into. My work at the moment is so temporary, almost cringe and forever fleeting. I love editorial and having it be a physical book makes things feel grounded. Also the type of thing I can send out to creative friends. Collecting visual references here in this [are.na](https://www.are.na/madani/madani-book-26).",
@@ -1043,6 +1062,10 @@ function renderEntries() {
     dateDiv.addEventListener("click", () => {
       const isOpen = contentDiv.classList.contains("open");
       if (isOpen) {
+        // restore a pixel cap so the close can animate from the real height
+        contentDiv.style.maxHeight = contentDiv.scrollHeight + "px";
+        void contentDiv.offsetHeight;
+        contentDiv.style.maxHeight = "";
         contentDiv.classList.remove("open");
         dateDiv.classList.remove("active");
         contentDiv.querySelectorAll("audio, video").forEach(media => media.pause());
@@ -1097,6 +1120,13 @@ function renderEntries() {
             ph.replaceWith(wrapper);
           }
         });
+
+        // long entries outgrow the CSS 1900px cap: animate to the entry's
+        // real height, then release the cap so late-loading media never clips
+        contentDiv.style.maxHeight = contentDiv.scrollHeight + "px";
+        setTimeout(() => {
+          if (contentDiv.classList.contains("open")) contentDiv.style.maxHeight = "none";
+        }, 700);
       }
     });
   });
