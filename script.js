@@ -21,6 +21,16 @@ marked.setOptions({ renderer });
 
 // --- Blog entries data --- lol  
 const entries = [{
+                    date: "Mon 14th September",
+                    content: [
+                      "Yo, [Are.na and Dinamo collab](https://are.al.are.na/) is insane, maybe 2 of my fav companies coming together in NYC to occupy Index Space. Kinda eerie how <span class='img-word' data-img='Images/areal-party.webp'>connected</span> things are starting to get for me.",
+                      "It’s the night before Budapest, I spent alot of the day working on some design / strategy pieces for Garden3D. We’re working on something cool which will be out later this year. I’m really looking forward to it.",
+                      "Posted the [YY Exchange video](https://www.instagram.com/p/DdQ-nnbBPWf/) today. I dont know if something happened to the quality or instagram is penalising me for the lack of posting recently but It wasn’t being shown to many people despite performing really well on paper. Hopefully continues to climb. A good reel none the less.",
+                      "Not feeling the Budapesht yet. Did my research but as always, I’m underprepared. I should catch a few hours of sleep, but my coach is in a few hours and I just know it’s not happening.",
+                      "Hope I feel better when I’ve checked in there. These entries aren’t even about design right now but I just want to get back into the practice of writing what’s happening."
+                    ]
+                  },
+                  {
                     date: "Sat 12th September",
                     content: [
                       "Neglected this for some time but maybe it was for the better even though I see so much importance in documenting your time and thinking.",
