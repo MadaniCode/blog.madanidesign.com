@@ -1202,20 +1202,38 @@ let activePreview = null;
 let pinnedWord = null;
 let activeWord = null;
 
+// Where an image goes, like a caption hung off the words:
+//  1. it hangs just below the line where the phrase ends
+//  2. its top-left corner sits under the phrase's first letter on that line
+//  3. if that would cross the page margin, it flips: its top-right corner
+//     sits under the phrase's last letter, so it hangs back to the left
+//  4. if neither fits, it rests against the right margin, still under the words
+// The margin is the text's own, so an image never sits closer to the edge of
+// the screen than the words do. Its width is known before it loads (the CSS
+// max-width) and the chosen corner is pinned with left or right, so it never
+// moves once the image arrives.
 function positionPreview() {
   if (!activePreview || !activeWord) return;
 
-  const rect = activeWord.getBoundingClientRect();
+  const lines = [...activeWord.getClientRects()].filter(r => r.width);
+  const line = lines[lines.length - 1];
+  if (!line) return;
+  const page = document.documentElement.clientWidth;
+  const margin = parseFloat(getComputedStyle(document.body).marginLeft);
+  const box = getComputedStyle(activePreview);
+  const wide =
+    Math.min(parseFloat(getComputedStyle(activePreview.firstElementChild).maxWidth), parseFloat(box.maxWidth)) +
+    parseFloat(box.borderLeftWidth) + parseFloat(box.borderRightWidth);
 
-  // anchor to the word in *document* space (so scrolling keeps it “attached”),
-  // nudged left when the word sits too near the right edge for the image to fit
-  const edge = 8;
-  const room = document.documentElement.clientWidth - activePreview.offsetWidth - edge;
-  const top = rect.bottom + 8 + window.scrollY;
-  const left = Math.max(edge, Math.min(rect.left, room)) + window.scrollX;
+  let left = line.left;
+  if (left + wide > page - margin) left = line.right - wide;
+  if (left < margin) left = Math.max(margin, page - margin - wide);
+  const flipped = left !== line.left;
 
-  activePreview.style.top = `${top}px`;
-  activePreview.style.left = `${left}px`;
+  // anchor in *document* space, so scrolling keeps it attached
+  activePreview.style.top = `${line.bottom + 8 + window.scrollY}px`;
+  activePreview.style.left = flipped ? "auto" : `${left + window.scrollX}px`;
+  activePreview.style.right = flipped ? `${page - left - wide - window.scrollX}px` : "auto";
 }
 
 function showPreview(word, pin = false) {
@@ -1239,9 +1257,6 @@ function showPreview(word, pin = false) {
 
   // IMPORTANT: absolute, not fixed
   preview.style.position = "absolute";
-
-  // its width is only known once the image arrives: re-place it then
-  preview.querySelector("img").addEventListener("load", positionPreview);
 
   document.body.appendChild(preview);
   activePreview = preview;
@@ -1275,6 +1290,10 @@ document.addEventListener("mouseout", (e) => {
 });
 
 /* Click / tap */
+// iPhones only pass a tap on plain text up to the document when something
+// nearer is listening, so tapping the writing still closes a pinned image
+document.getElementById("blog").addEventListener("click", () => {});
+
 document.addEventListener("click", (e) => {
   const word = e.target.closest(".img-word");
 
@@ -1332,7 +1351,7 @@ document.querySelector(".title").addEventListener("click", () => {
   body.animate(
     [{ transform: `scale(${k})` }, { transform: "none" }],
     { duration: 550, easing: "cubic-bezier(0.4, 0, 0.2, 1)" }
-  );
+  ).onfinish = positionPreview; // an image hovered mid-glide settles onto its word
 });
 
 function revealSecret() {
