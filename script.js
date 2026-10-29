@@ -1147,7 +1147,7 @@ function renderEntries() {
             audio.controls = true;
             audio.src = src;
             audio.style.width = "100%";
-            audio.style.margin = "10px 0";
+            audio.style.margin = "calc(10px * var(--s)) 0";
             ph.replaceWith(audio);
           }
 
@@ -1158,7 +1158,7 @@ function renderEntries() {
             video.style.maxWidth = "100%";
             video.style.height = "auto";
             video.style.display = "block";
-            video.style.margin = "10px 0";
+            video.style.margin = "calc(10px * var(--s)) 0";
             ph.replaceWith(video);
           }
 
@@ -1172,7 +1172,7 @@ function renderEntries() {
             const wrapper = document.createElement("div");
             wrapper.style.display = "block";
             wrapper.style.maxWidth = "100%";
-            wrapper.style.margin = "10px 0";
+            wrapper.style.margin = "calc(10px * var(--s)) 0";
             wrapper.style.position = "relative";
 
             img.onload = () => {
@@ -1207,9 +1207,12 @@ function positionPreview() {
 
   const rect = activeWord.getBoundingClientRect();
 
-  // anchor to the word in *document* space (so scrolling keeps it “attached”)
+  // anchor to the word in *document* space (so scrolling keeps it “attached”),
+  // nudged left when the word sits too near the right edge for the image to fit
+  const edge = 8;
+  const room = document.documentElement.clientWidth - activePreview.offsetWidth - edge;
   const top = rect.bottom + 8 + window.scrollY;
-  const left = rect.left + window.scrollX;
+  const left = Math.max(edge, Math.min(rect.left, room)) + window.scrollX;
 
   activePreview.style.top = `${top}px`;
   activePreview.style.left = `${left}px`;
@@ -1236,6 +1239,9 @@ function showPreview(word, pin = false) {
 
   // IMPORTANT: absolute, not fixed
   preview.style.position = "absolute";
+
+  // its width is only known once the image arrives: re-place it then
+  preview.querySelector("img").addEventListener("load", positionPreview);
 
   document.body.appendChild(preview);
   activePreview = preview;
@@ -1295,6 +1301,13 @@ window.addEventListener("resize", () => {
 
 
 renderEntries();
+
+// the name is a quiet zoom: on desktop, clicking it scales the whole page up
+// and back (the size lives in style.css as --s)
+const desktop = window.matchMedia("(hover: hover) and (pointer: fine)");
+document.querySelector(".title").addEventListener("click", () => {
+  if (desktop.matches) document.documentElement.classList.toggle("big");
+});
 
 function revealSecret() {
   const box = event.target.closest('.secret-box');
