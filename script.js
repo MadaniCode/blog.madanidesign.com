@@ -1303,10 +1303,36 @@ window.addEventListener("resize", () => {
 renderEntries();
 
 // the name is a quiet zoom: on desktop, clicking it scales the whole page up
-// and back (the size lives in style.css as --s)
+// and back. The layout jumps to its new size at once (the size lives in
+// style.css as --s), then the page is scaled from how it looked back to rest
+// on the GPU, about the top of the screen, so it glides instead of reflowing
 const desktop = window.matchMedia("(hover: hover) and (pointer: fine)");
+const blog = document.getElementById("blog");
 document.querySelector(".title").addEventListener("click", () => {
-  if (desktop.matches) document.documentElement.classList.toggle("big");
+  if (!desktop.matches) return;
+  const root = document.documentElement;
+  const body = document.body;
+  const before = blog.getBoundingClientRect(); // as seen, mid-zoom included
+  const seen = getComputedStyle(body).transform; // a glide still running
+  const ratio = root.classList.contains("big") ? 14 / 18 : 18 / 14;
+  const k = (seen === "none" ? 1 : new DOMMatrix(seen).a) / ratio;
+  const y = window.scrollY;
+
+  body.getAnimations().forEach(a => a.cancel());
+  root.classList.toggle("big");
+  window.scrollTo(0, y * ratio); // keep what's at the top of the screen there
+  if (Math.abs(1 - k) < 0.01) return;
+
+  // scale about the point that lines the old view up with the new layout
+  const after = blog.getBoundingClientRect();
+  const box = body.getBoundingClientRect();
+  const ox = (before.left - after.left * k) / (1 - k) - box.left;
+  const oy = (before.top - after.top * k) / (1 - k) - box.top;
+  body.style.transformOrigin = `${ox}px ${oy}px`;
+  body.animate(
+    [{ transform: `scale(${k})` }, { transform: "none" }],
+    { duration: 550, easing: "cubic-bezier(0.4, 0, 0.2, 1)" }
+  );
 });
 
 function revealSecret() {
