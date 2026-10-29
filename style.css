@@ -197,44 +197,58 @@ audio {
   display: block;
 }
 
-/* --- entries marked dark: the room goes black, the words go white --- */
+/* --- entries marked dark: the room goes black, the words go white ---
+   Both states are solid colours on the root, so every browser fades cleanly
+   there and back. */
+html {
+  background: #fff;
+  transition: background-color 0.9s ease;
+}
 body {
-  transition: background-color 0.9s ease, color 0.9s ease;
+  transition: color 0.9s ease;
 }
 a {
   transition: color 0.9s ease;
 }
-body.dark {
+html.dark {
   background: #000;
+}
+html.dark body {
   color: #fff;
 }
-body.dark .date {
+html.dark .date {
   color: rgba(255, 255, 255, 0.5);
 }
-body.dark .date:hover,
-body.dark .date.active {
+html.dark .date:hover,
+html.dark .date.active {
   color: #fff;
 }
-body.dark a {
+html.dark a {
   color: #d8d8d8;
 }
-body.dark a:hover {
+html.dark a:hover {
   color: #fff;
 }
-body.dark img {
+html.dark img {
   background: #121212;
 }
-body.dark .poem {
+html.dark .poem {
   border-left-color: #333;
 }
-body.dark .img-word {
+html.dark .img-word {
   border-bottom-color: #555;
 }
-body.dark .img-preview {
+html.dark .img-preview {
   background: #121212;
   border-color: #333;
 }
-body.dark ::selection {
+html.dark ::selection {
   background: #fff;
   color: #000;
+}
+
+/* a list item sits 6px tight, which also ate the gap after the last one:
+   give the paragraph after a list the same breathing room as the one before */
+.content > div:has(> ul) + div:not(:has(> ul)) > :first-child {
+  margin-top: 20px;
 }

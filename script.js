@@ -1080,9 +1080,19 @@ function restartQuiz(entryDate) {
 }
 
 // --- Render entries ---
-// the page goes dark while any entry marked dark is open
+// the page goes dark while any entry marked dark is open. It lives on the
+// root element (not body) and also retints the browser chrome, because Safari
+// otherwise leaves the backdrop and toolbar black after the fade back.
 function setRoom() {
-  document.body.classList.toggle("dark", !!document.querySelector(".entry.dark .content.open"));
+  const dark = !!document.querySelector(".entry.dark .content.open");
+  document.documentElement.classList.toggle("dark", dark);
+  let tint = document.querySelector('meta[name="theme-color"]');
+  if (!tint) {
+    tint = document.createElement("meta");
+    tint.name = "theme-color";
+    document.head.appendChild(tint);
+  }
+  tint.content = dark ? "#000000" : "#ffffff";
 }
 
 function renderEntries() {
