@@ -22,20 +22,24 @@ marked.setOptions({ renderer });
 // --- Blog entries data --- lol  
 const entries = [{
                     date: "Wed 28th October",
+                    dark: true,
                     content: [
                       "*A letter on the fear of failure.*",
                       "I can’t imagine waking up and feeling like my motivating factor is a feeling of failure that I need to escape.",
-                      "So what is it? I spoke with a friend and he said I might be suffering from success. I think in many ways I agree. My salary was always somewhat stable in hindsight, but now recurring clients have taken that feeling from:",
-                      "stable → predictable",
+                      "So what is it? I spoke with a friend and he said I might be *suffering from success*. I think in many ways I agree. My salary was always somewhat stable in hindsight, but now recurring clients have taken that feeling from:",
+                      "*stable* → *predictable*",
                       "This is one of the many ways in which my ambitions have been pacified. There is nothing sexier to me than the big risk, the jump over the canyon. But right now I’m sat on one side with more than I’d expected to have the year before.",
                       "I’m not even thinking about the next jump…",
                       "Time is warped by so many variables: money, career progression, friends, social media and the millions of comparisons I subconsciously make.",
                       "I really struggle with intentions…",
-                      "How did you get here? Or what made you pick that?",
+                      "*How did you get here? Or what made you pick that?*",
                       "These questions are written by the Devil himself. The things I do often feel like I’m wading through shallow waters. My feet can kind of reach the bottom, but sometimes it gets too deep for me to keep walking.",
                       "How do I explain the feelings it took to make this move?",
                       "I wish this were a blanket truth, though. More often than not, I over-intellectualise these choices, which leads to inaction, which leads to sadness and despair, which leads to inspiration, which finally leads to me trusting my feelings and intuition like I should have done in the first place.",
-                      "Pace yourself<br>Just do the thing<br>Find time to be bored<br>Speak to that person",
+                      "- Pace yourself",
+                      "- Just do the thing",
+                      "- Find time to be bored",
+                      "- Speak to that person",
                       "All things I know I should do, but don’t yet have the capacity to internalise.",
                       "This year could have been the one. I didn’t do it quite yet, and I’m not even sure what “it” is anymore.",
                       "![Madani in a Dinamo cap](Images/fear-of-failure.webp)",
@@ -1076,6 +1080,11 @@ function restartQuiz(entryDate) {
 }
 
 // --- Render entries ---
+// the page goes dark while any entry marked dark is open
+function setRoom() {
+  document.body.classList.toggle("dark", !!document.querySelector(".entry.dark .content.open"));
+}
+
 function renderEntries() {
   
   const blogContainer = document.getElementById("blog");
@@ -1083,6 +1092,7 @@ function renderEntries() {
   entries.forEach(entry => {
     const entryDiv = document.createElement("div");
     entryDiv.classList.add("entry");
+    if (entry.dark) entryDiv.classList.add("dark");
 
     const dateDiv = document.createElement("div");
     dateDiv.classList.add("date");
@@ -1112,10 +1122,12 @@ function renderEntries() {
         contentDiv.style.maxHeight = "";
         contentDiv.classList.remove("open");
         dateDiv.classList.remove("active");
+        setRoom();
         contentDiv.querySelectorAll("audio, video").forEach(media => media.pause());
       } else {
         contentDiv.classList.add("open");
         dateDiv.classList.add("active");
+        setRoom();
         contentDiv.querySelectorAll(".media-placeholder").forEach(ph => {
           const type = ph.dataset.type;
           const src = ph.dataset.src;
